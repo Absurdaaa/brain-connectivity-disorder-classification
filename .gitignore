@@ -1,0 +1,9 @@
+.vscode
+*__pycache__*
+*.npy
+*.pt
+models/ASDFormer/wandb/*
+models/ASDFormer/result/*
+models/ASDFormer/outputs/*
+models/ASDFormer/multirun/*
+

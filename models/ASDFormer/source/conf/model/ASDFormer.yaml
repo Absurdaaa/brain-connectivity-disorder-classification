@@ -1,0 +1,48 @@
+model_type: "ASDFormer"
+name: "ASDFormer"
+
+keys_to_ignore_at_inference: ["past_key_values"]
+node_cluster_assignments: [41, 70, 91, 110, 130, 137, 158, 200] #indices range for nodes which belong to each of 8 clusters
+dropout: 0.1
+
+bias: True
+
+
+time_series_len: 100
+num_classes: 2
+num_degree: 200
+num_ROIs: 200  # 200 ROIs based on dataset
+activation_fn: "gelu"
+
+
+
+regularization_co: 0.23
+
+num_attention_heads: 8
+num_hidden_layers: 1
+embedding_dim: 200
+ffn_embedding_dim: 1024
+kdim: 200
+vdim: 200
+
+
+feature_encoder_hidden: 256
+feature_encoder_layer: 2
+
+k1: 8
+k2: 4
+dim_reduc_ratio: 4
+
+dim_reduc_hidden: 1024
+dim_reduc_layer: 2
+
+
+expert_hidden: 768
+expert_layer: 2
+
+
+classifier_hidden: 256
+classifier_layer: 2
+
+gate_hidden: 256
+gate_layer: 2

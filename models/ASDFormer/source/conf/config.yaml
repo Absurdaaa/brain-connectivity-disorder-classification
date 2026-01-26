@@ -1,0 +1,16 @@
+defaults:
+  - dataset: ABIDE
+  - model: ASDFormer
+  - optimizer: adam
+  - training: basic_training
+  - datasz: 100p
+  - preprocess: non_mixup
+
+repeat_time: 1
+log_path: result
+save_learnable_graph: True
+save_attn_weights: True
+
+# wandb
+wandb_entity: ASDFormer
+project: ASDFormer

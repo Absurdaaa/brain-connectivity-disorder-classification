@@ -2,8 +2,19 @@
 *__pycache__*
 *.npy
 *.pt
+
 models/ASDFormer/wandb/*
 models/ASDFormer/result/*
 models/ASDFormer/outputs/*
 models/ASDFormer/multirun/*
 
+models/BrainNetworkTransformer/wandb/*
+models/BrainNetworkTransformer/result/*
+models/BrainNetworkTransformer/outputs/*
+models/BrainNetworkTransformer/multirun/*
+
+
+models/Com-BrainTF/wandb/*
+models/Com-BrainTF/result/*
+models/Com-BrainTF/outputs/*
+models/Com-BrainTF/multirun/*

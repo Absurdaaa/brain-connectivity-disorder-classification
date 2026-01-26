@@ -178,14 +178,49 @@ class Train:
                 attn_weights_test.append(attn_np)
 
 
-        np.save(self.save_path/f"attnWeights.npy", attn_weights, allow_pickle=True)
-        np.save(self.save_path/f"labels.npy", labels, allow_pickle=True)
-        np.save(self.save_path/f"assign_matrices.npy", assign_matrices, allow_pickle=True)
+        # np.save(self.save_path/f"attnWeights.npy", attn_weights, allow_pickle=True)
+        # np.save(self.save_path/f"labels.npy", labels, allow_pickle=True)
+        # np.save(self.save_path/f"assign_matrices.npy", assign_matrices, allow_pickle=True)
+
+        # if self.save_test_attn_weights:
+        #     np.save(self.save_path/f"attnWeights_test.npy", attn_weights_test, allow_pickle=True)
+        #     np.save(self.save_path/f"labels_test.npy", labels_test, allow_pickle=True)
+        #     np.save(self.save_path/f"assign_matrices_test.npy", assign_matrices_test, allow_pickle=True)
+            
+        np.save(
+            self.save_path / "attnWeights.npy",
+            np.array(attn_weights, dtype=object),
+            allow_pickle=True
+        )
+        np.save(
+            self.save_path / "labels.npy",
+            np.array(labels, dtype=object),
+            allow_pickle=True
+        )
+
+        np.save(
+            self.save_path / "assign_matrices.npy",
+            np.array(assign_matrices, dtype=object),
+            allow_pickle=True
+        )
 
         if self.save_test_attn_weights:
-            np.save(self.save_path/f"attnWeights_test.npy", attn_weights_test, allow_pickle=True)
-            np.save(self.save_path/f"labels_test.npy", labels_test, allow_pickle=True)
-            np.save(self.save_path/f"assign_matrices_test.npy", assign_matrices_test, allow_pickle=True)
+            np.save(
+                self.save_path / "attnWeights_test.npy",
+                np.array(attn_weights_test, dtype=object),
+                allow_pickle=True
+            )
+            np.save(
+                self.save_path / "labels_test.npy",
+                np.array(labels_test, dtype=object),
+                allow_pickle=True
+            )
+            np.save(
+                self.save_path / "assign_matrices_test.npy",
+                np.array(assign_matrices_test, dtype=object),
+                allow_pickle=True
+            )
+
 
     def generate_save_learnable_matrix(self):
 

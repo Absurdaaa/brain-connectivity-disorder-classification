@@ -13,8 +13,13 @@ models/BrainNetworkTransformer/result/*
 models/BrainNetworkTransformer/outputs/*
 models/BrainNetworkTransformer/multirun/*
 
-
 models/Com-BrainTF/wandb/*
 models/Com-BrainTF/result/*
 models/Com-BrainTF/outputs/*
 models/Com-BrainTF/multirun/*
+
+data/
+.DS_Store
+
+wandb/
+result/

@@ -1,0 +1,21 @@
+name: brain-unified
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - cudatoolkit=11.3
+  - pytorch=1.12.1
+  - torchvision=0.13.1
+  - torchaudio=0.12.1
+  - scikit-learn=1.1.1
+  - pandas=1.4.3
+  - scipy=1.9.1
+  - pip
+  - pip:
+      - wandb==0.13.1
+      - hydra-core==1.2.0
+      - omegaconf==2.2.3
+      - nilearn==0.9.2

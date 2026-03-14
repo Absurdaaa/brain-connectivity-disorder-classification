@@ -1,0 +1,52 @@
+/Users/linshangjin/opt/anaconda3/envs/unified/lib/python3.9/site-packages/hydra/_internal/defaults_list.py:251: UserWarning: In 'config': Defaults list is missing `_self_`. See https://hydra.cc/docs/1.2/upgrades/1.0_to_1.1/default_composition_order for more information
+  warnings.warn(msg, UserWarning)
+wandb: WARNING Using a boolean value for 'reinit' is deprecated. Use 'return_previous' or 'finish_previous' instead.
+wandb: Tracking run with wandb version 0.25.0
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+wandb: Run data is saved locally in /Users/linshangjin/Desktop/dachuang/models/unified/wandb/offline-run-20260228_220912-oor34bol
+/Users/linshangjin/opt/anaconda3/envs/unified/lib/python3.9/site-packages/hydra/_internal/defaults_list.py:251: UserWarning: In 'config': Defaults list is missing `_self_`. See https://hydra.cc/docs/1.2/upgrades/1.0_to_1.1/default_composition_order for more information
+  warnings.warn(msg, UserWarning)
+wandb: Finishing previous runs because reinit is set to True.
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /Users/linshangjin/Desktop/dachuang/models/unified/wandb/offline-run-20260228_220912-oor34bol
+wandb: Find logs at: ./wandb/offline-run-20260228_220912-oor34bol/logs
+wandb: Tracking run with wandb version 0.25.0
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+wandb: Run data is saved locally in /Users/linshangjin/Desktop/dachuang/models/unified/wandb/offline-run-20260228_220912-6emaz833
+/Users/linshangjin/opt/anaconda3/envs/unified/lib/python3.9/site-packages/hydra/_internal/defaults_list.py:251: UserWarning: In 'config': Defaults list is missing `_self_`. See https://hydra.cc/docs/1.2/upgrades/1.0_to_1.1/default_composition_order for more information
+  warnings.warn(msg, UserWarning)
+wandb: Finishing previous runs because reinit is set to True.
+wandb: You can sync this run to the cloud by running:
+wandb: wandb sync /Users/linshangjin/Desktop/dachuang/models/unified/wandb/offline-run-20260228_220912-6emaz833
+wandb: Find logs at: ./wandb/offline-run-20260228_220912-6emaz833/logs
+wandb: Tracking run with wandb version 0.25.0
+wandb: W&B syncing is set to `offline` in this directory. Run `wandb online` or set WANDB_MODE=online to enable cloud syncing.
+wandb: Run data is saved locally in /Users/linshangjin/Desktop/dachuang/models/unified/wandb/offline-run-20260228_220913-klgh1gqq
+Error executing job with overrides: ['datasz=100p', 'model=ASDFormer', 'dataset=MDD', 'repeat_time=1', 'preprocess=non_mixup']
+Traceback (most recent call last):
+  File "/Users/linshangjin/Desktop/dachuang/models/unified/source/__main__.py", line 50, in main
+    t_acc, t_auc, t_sen, t_spec = model_training(cfg)
+  File "/Users/linshangjin/Desktop/dachuang/models/unified/source/__main__.py", line 24, in model_training
+    dataloaders = dataset_factory(cfg)
+  File "/Users/linshangjin/Desktop/dachuang/models/unified/source/dataset/__init__.py", line 17, in dataset_factory
+    datasets = loaders[cfg.dataset.name](cfg)
+  File "/Users/linshangjin/Desktop/dachuang/models/unified/source/dataset/abide.py", line 12, in load_mdd_data
+    return _load_npy_data(cfg)
+  File "/Users/linshangjin/Desktop/dachuang/models/unified/source/dataset/abide.py", line 16, in _load_npy_data
+    data = np.load(cfg.dataset.path, allow_pickle=True).item()
+  File "/Users/linshangjin/opt/anaconda3/envs/unified/lib/python3.9/site-packages/numpy/lib/npyio.py", line 427, in load
+    fid = stack.enter_context(open(os_fspath(file), "rb"))
+FileNotFoundError: [Errno 2] No such file or directory: '../../../data/mdd_networkmatrix.npy'
+
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+
+ERROR conda.cli.main_run:execute(125): `conda run python -m source --multirun datasz=100p model=ASDFormer,comtf,bnt dataset=MDD repeat_time=1 preprocess=non_mixup` failed. (See above for error)
+[2026-02-28 22:09:11,741][HYDRA] Launching 3 jobs locally
+[2026-02-28 22:09:11,741][HYDRA] 	#0 : datasz=100p model=ASDFormer dataset=MDD repeat_time=1 preprocess=non_mixup
+[2026-02-28 22:09:12,516][HYDRA] 	#1 : datasz=100p model=comtf dataset=MDD repeat_time=1 preprocess=non_mixup
+[2026-02-28 22:09:12,941][HYDRA] 	#2 : datasz=100p model=bnt dataset=MDD repeat_time=1 preprocess=non_mixup
+[1;34mwandb[0m: 
+[1;34mwandb[0m: You can sync this run to the cloud by running:
+[1;34mwandb[0m: [1mwandb sync /Users/linshangjin/Desktop/dachuang/models/unified/wandb/offline-run-20260228_220913-klgh1gqq[0m
+[1;34mwandb[0m: Find logs at: [1;35mwandb/offline-run-20260228_220913-klgh1gqq/logs[0m
+

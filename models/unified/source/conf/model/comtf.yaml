@@ -1,0 +1,15 @@
+name: ComBrainTF
+sizes: [360, 8]
+pooling: [false, true]
+pos_encoding: none
+orthogonal: true
+freeze_center: true
+project_assignment: true
+pos_embed_dim: 360
+nhead: 8
+num_MHSA: 1
+
+# 统一框架 flags
+use_partial: false
+use_pool_loss: true
+use_regularization: false

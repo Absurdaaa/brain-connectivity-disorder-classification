@@ -1,0 +1,13 @@
+name: BrainNetworkTransformer
+sizes: [360, 100]
+pooling: [false, true]
+pos_encoding: none
+orthogonal: true
+freeze_center: true
+project_assignment: true
+pos_embed_dim: 360
+
+# 统一框架 flags
+use_partial: false
+use_pool_loss: false
+use_regularization: false

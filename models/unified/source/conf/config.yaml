@@ -1,0 +1,15 @@
+defaults:
+  - dataset: ABIDE
+  - model: ASDFormer
+  - optimizer: adam
+  - training: basic_training
+  - datasz: 100p
+  - preprocess: non_mixup
+
+repeat_time: 5
+log_path: result
+save_learnable_graph: false
+save_attn_weights: true
+
+# wandb
+project: unified-brain

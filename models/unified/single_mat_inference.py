@@ -112,7 +112,7 @@ def preprocess_single_sample(mat_data, dataset_name, model_yaml_name, device):
     
     # 2. 处理time_series（根据模型配置补充，若模型不需要可设为全0）
     # 先获取模型配置中的时间序列长度/节点数
-    time_series_len = cfg.dataset.get('time_series_len', 100)  # 可根据实际配置调整
+    time_series_len = cfg.dataset.get('time_series_len', 200)  # 可根据实际配置调整
     node_sz = cfg.dataset.get('node_sz', 200)
     
     # 生成适配的time_series（若有真实时间序列可替换，这里用全0/随机值占位）
@@ -141,7 +141,14 @@ def run_single_inference(model_yaml_name, dataset_name, weights_path, mat_data, 
     """
     # 构建配置
     cfg = build_cfg(dataset_name, model_yaml_name)
-    
+
+    # 填充模型所需的动态配置字段（node_sz, node_feature_sz, timeseries_sz）
+    from omegaconf import open_dict
+    with open_dict(cfg):
+        cfg.dataset.node_sz = mat_data.shape[0]          # 200
+        cfg.dataset.node_feature_sz = mat_data.shape[1]  # 200
+        cfg.dataset.timeseries_sz = 200                  # 占位，模型实际不使用时间序列
+
     # 初始化模型并加载权重
     model = model_factory(cfg)
     state_dict = torch.load(weights_path, map_location=device)

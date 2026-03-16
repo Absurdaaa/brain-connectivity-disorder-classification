@@ -8,6 +8,7 @@
 用法:
     python vote_inference.py --dataset ABIDE
     python vote_inference.py --dataset MDD
+    python vote_inference.py --dataset ABIDE_NET
     python vote_inference.py --dataset ABIDE --weights_dir /path/to/weights
 """
 

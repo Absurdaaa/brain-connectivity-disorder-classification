@@ -1,0 +1,38 @@
+Device: cuda
+Dataset: MDD
+Weights dir: /home/ubuntu14/lhp/awork/dachuang/weights
+  ASDFormer: /home/ubuntu14/lhp/awork/dachuang/weights/ASDFormer_MDD.pt
+  ComBrainTF: /home/ubuntu14/lhp/awork/dachuang/weights/ComBrainTF_MDD.pt
+  BrainNetworkTransformer: /home/ubuntu14/lhp/awork/dachuang/weights/BrainNetworkTransformer_MDD.pt
+
+加载数据集...
+测试集样本数: 242
+
+推理模型: ASDFormer...
+  ASDFormer — Acc: 0.6570, AUC: 0.7488, Sen: 0.6484, Spec: 0.6667
+
+推理模型: ComBrainTF...
+nhead = 8
+nhead = 8
+  ComBrainTF — Acc: 0.6488, AUC: 0.7402, Sen: 0.6719, Spec: 0.6228
+
+推理模型: BrainNetworkTransformer...
+  BrainNetworkTransformer — Acc: 0.6653, AUC: 0.7113, Sen: 0.6484, Spec: 0.6842
+
+==================================================
+  硬投票 (Hard Voting, >=2/3)
+==================================================
+  Accuracy:    0.6612
+  AUC:         0.6956
+  Sensitivity: 0.6562
+  Specificity: 0.6667
+==================================================
+
+==================================================
+  熵加权软投票 (Entropy-Weighted Soft Voting)
+==================================================
+  Accuracy:    0.6777
+  AUC:         0.7392
+  Sensitivity: 0.6719
+  Specificity: 0.6842
+==================================================

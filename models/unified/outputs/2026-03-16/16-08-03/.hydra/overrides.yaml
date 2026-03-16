@@ -1,5 +1,0 @@
-- datasz=100p
-- model=ASDFormer
-- dataset=MDD
-- repeat_time=1
-- preprocess=non_mixup

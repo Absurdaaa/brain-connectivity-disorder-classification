@@ -74,6 +74,8 @@ class Train:
 
         if self.use_pool_loss:
             predict, aux_loss = output
+            if aux_loss is None:
+                aux_loss = 0
         else:
             predict, aux_loss = output, 0
 

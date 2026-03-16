@@ -164,8 +164,10 @@ class ComBrainTF(BaseModel):
         self.fc = nn.Sequential(
             nn.Linear(8 * sizes[-1], 256),
             nn.LeakyReLU(),
+            nn.Dropout(p=0.5),
             nn.Linear(256, 32),
             nn.LeakyReLU(),
+            nn.Dropout(p=0.3),
             nn.Linear(32, 2)
         )
 

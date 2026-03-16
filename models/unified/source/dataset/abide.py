@@ -20,8 +20,12 @@ def _load_npy_data(cfg: DictConfig):
     labels = data["label"]
     site = data["site"]
 
+    final_pearson = np.nan_to_num(final_pearson)
+    final_partial = np.nan_to_num(final_partial)
+
     scaler = StandardScaler(mean=np.mean(final_timeseires), std=np.std(final_timeseires))
     final_timeseires = scaler.transform(final_timeseires)
+    final_timeseires = np.nan_to_num(final_timeseires)
 
     final_timeseires, final_pearson, final_partial, labels = [
         torch.from_numpy(d).float()

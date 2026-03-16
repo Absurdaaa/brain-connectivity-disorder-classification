@@ -2,7 +2,7 @@ name: Adam
 lr: 1.0e-4
 match_rule: None
 except_rule: None
-weight_decay: 1.0e-4
+weight_decay: 1.0e-3
 lr_scheduler:
     mode: cos # ['step', 'poly', 'cos']
     base_lr: 1.0e-4

@@ -1,0 +1,5 @@
+- datasz=100p
+- model=ASDFormer
+- dataset=ABIDE
+- repeat_time=1
+- preprocess=non_mixup

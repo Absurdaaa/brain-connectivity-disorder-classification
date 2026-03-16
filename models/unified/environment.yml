@@ -1,9 +1,9 @@
-name: brain-unified
+name: unified
 channels:
-  - pytorch
-  - nvidia
-  - conda-forge
-  - defaults
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/      # 清华镜像 defaults
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/  # 清华镜像 conda-forge
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/pytorch/      # 清华镜像 pytorch
+  - defaults  # 兜底（防止镜像同步延迟）
 dependencies:
   - python=3.9
   - cudatoolkit=11.3

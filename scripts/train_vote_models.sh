@@ -20,17 +20,37 @@ export PYTORCH_ENABLE_MPS_FALLBACK=1
 
 # 模型名列表（Hydra config 中的 model 参数）
 MODELS=("ASDFormer" "comtf" "bnt")
-DATASETS=("ABIDE" "MDD")
+# cfg.model.name 对应的实际目录名（与 yaml 中的 name 字段一致）
+declare -A MODEL_DIR_MAP
+MODEL_DIR_MAP["ASDFormer"]="ASDFormer"
+MODEL_DIR_MAP["comtf"]="ComBrainTF"
+MODEL_DIR_MAP["bnt"]="BrainNetworkTransformer"
+DATASETS=("ABIDE" "ABIDE_NET" "MDD")
 
 for MODEL in "${MODELS[@]}"; do
     for DATASET in "${DATASETS[@]}"; do
+        # 定义目标权重文件路径（核心：提前预判最终生成的权重文件）
+        DST="${WEIGHTS_DIR}/${MODEL}_${DATASET}.pt"
+        
+        echo ""
+        echo "========================================"
+        echo " 检查: model=${MODEL}  dataset=${DATASET}"
+        echo "========================================"
+
+        # 新增：检查权重文件是否已存在，存在则跳过训练
+        if [ -f "$DST" ]; then
+            echo "  ✅ 权重文件 ${DST} 已存在，跳过训练"
+            continue
+        fi
+
+        echo "  🚀 权重文件不存在，开始训练..."
         echo ""
         echo "========================================"
         echo " 训练: model=${MODEL}  dataset=${DATASET}"
         echo "========================================"
 
         # 记录训练前 result 目录中该模型的文件夹列表
-        RESULT_DIR="${UNIFIED_DIR}/result/${MODEL}"
+        RESULT_DIR="${UNIFIED_DIR}/result/${MODEL_DIR_MAP[$MODEL]}"
         mkdir -p "$RESULT_DIR"
         BEFORE=$(ls "$RESULT_DIR" 2>/dev/null || true)
 
@@ -60,7 +80,7 @@ for MODEL in "${MODELS[@]}"; do
         fi
 
         SRC="${RESULT_DIR}/${NEW_DIR}/model.pt"
-        DST="${WEIGHTS_DIR}/${MODEL}_${DATASET}.pt"
+        DST="${WEIGHTS_DIR}/${MODEL_DIR_MAP[$MODEL]}_${DATASET}.pt"
 
         if [ -f "$SRC" ]; then
             cp "$SRC" "$DST"

@@ -17,3 +17,9 @@
   python vote_inference.py --dataset ABIDE
 ```
 
+# 单样本推理
+```
+  cd models/unified/
+  python single_mat_inference.py --mat_path yourmat.mat --dataset ABIDE --weights_dir /weights
+```
+
